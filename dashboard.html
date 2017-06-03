@@ -1,0 +1,181 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="mobile-web-app-capable" content="yes">
+    <title>Chart</title>
+</head>
+<!-- Custom CSS -->
+<link rel="stylesheet" type="text/css" href="public/assets/css/style.css">
+<!--  jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<!-- MDL -->
+<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<!-- jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="/js/awesomplete.js"></script>
+<link rel="stylesheet" type="text/css" href="/css/awesomplete.css" />
+
+<body>
+    <div class="container">
+        <div class="jumbotron">
+            <h1 class="display-3">Money Chirp <img src="./public/images/twitter.png" style="width: 60px; height: 60px"></h1>
+            <p class="lead">Never miss out on what's happening.</p>
+            <hr class="my-4">
+            <h6>Add Company to List</h6>
+            <input class="awesomplete" list="mylist" id="addInput" />
+            <datalist id="mylist">
+                <option>APPL</option>
+                <option>GOOGL</option>
+                <option>MSFT</option>
+            </datalist>
+            <button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored" id="addBtn">
+                <i class="material-icons">add</i>
+            </button>
+            </br>
+            </br>
+            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="runBtn">
+                Run Chart
+            </button>
+            <hr class="my-4">
+            <h6>You are following (click to see fianance data)</h6>
+            <div id="following">
+            </div>
+            <div id="stockBtns">
+            </div>
+        </div>
+    </div>
+    </div>
+    <div calss="container">
+        <div class="row">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-8">
+                <h2>Who's Trending?</h2>
+                <canvas id="myChart" style="width:400px; height:200px"></canvas>
+            </div>
+        </div>
+    </div>
+    <!-- Chart.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <script type="text/javascript">
+    var companySymbol;
+    var stockPrices = [];
+    var stockTimes = [];
+    var companiesArray = [];
+    var companiesScore = [];
+    $(document).ready(function() {
+        var companyIndex = 1;
+        //add company function
+        $("#addBtn").click(function() {
+            event.preventDefault();
+            var companyPicked = $("#addInput").val();
+            console.log(companyPicked);
+            //*** need to figure out how to empty input after selected one company 
+            // $("#addInput").removeAttr('value');
+            var displayBtn = $("<button>").addClass("mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent");
+            displayBtn.text(companyPicked);
+            displayBtn.attr("index", companyPicked);
+            displayBtn.addClass("companyBtn");
+            $("#following").append(displayBtn);
+            $("#following").append("  ");
+            companiesArray.push(companyPicked);
+            var newChartData = {
+                labels: companiesArray,
+                data: []
+            }
+            $.post("api/chartData", newChartData, function(data) {
+                console.log("hi!");
+                console.log(data);
+                companiesScore = data.data;
+
+            });
+
+        });
+
+        $(document).on("click", ".companyBtn", function() {
+            // alert("show finance data for"+ $(this).attr("index"));
+            var financeData = {
+                symbol: $(this).attr("index"),
+                timeStamps: [],
+                closePrices: []
+            }
+
+            $.post("api/financeData", financeData, function(data) {
+                companySymbol = data.symbol;
+                stockPrices = data.closePrices;
+                stockTimes = data.timeStamps;
+                runChart();
+
+            });
+        });
+
+        //     var StockBtn = $("<button>").attr("index", companyIndex);
+        //     StockBtn.addClass("mdl-button mdl-js-button mdl-button--raised").text(companyPicked);
+        //     StockBtn.addClass("StockBtn");
+        //     $("#stockBtns").append(StockBtn);
+        //     $("#stockBtns").append("  ");
+        //     companyIndex++;
+
+        //      $(".StockBtn").click(function(){
+        //            alert($this.index);
+        //      });
+
+        // });
+
+
+
+        $("#runBtn").click(function() {
+
+            runChart();
+        });
+    });
+
+    function runChart() {
+        var ctx = document.getElementById("myChart");
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: stockTimes ,
+                datasets: [{
+                    label: ["Twitter Trending Score"],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255,99,132,1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1,
+                    data: stockPrices
+                }],
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false
+                }
+            }
+        });
+    }
+    </script>
+    <!-- browserify -->
+    <!--  <script src="twitter.js"></script> -->
+    <!-- <script src="bundle.js"></script> -->
+    <!-- <script type="text/javascript" src="chart.js"></script> -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+</body>
+
+</html>

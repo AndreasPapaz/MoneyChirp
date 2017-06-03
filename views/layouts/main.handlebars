@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+
+		{{!-- BOOTSTRAP --}}
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+		<!-- Material Design Bootstrap -->
+    	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+		<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+		<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+
+    	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+    	
+		{{!-- jquery script --}}
+    	<script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+    	<script type="text/javascript" src="/assets/js/pagefunc.js"></script>
+
+    	 <!-- MDB core JavaScript -->
+    	<script type="text/javascript" href="/node_modules/mdbootstrap/js/mdb.min.js"></script>
+
+    	{{!-- AWESOME COMPLETE JavaScript --}}
+    	<script src="/js/awesomplete.js"></script>
+
+    	{{!-- AWESOME COMPLETE CSS --}}
+    	<link rel="stylesheet" type="text/css" href="/css/awesomplete.css"/>
+
+    	<!--Chart.js-->
+    	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+
+		<title>Money Chirp</title>
+	</head>
+	<body>
+		
+<!-- MDL navigation container -->
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    
+  <header class="mdl-layout__header">
+    <div class="mdl-layout__header-row">
+      <!-- Title of the Header -->
+      <span class="mdl-layout-title">Money Chirp</span>
+      <!-- Spacer, to align items to right -->
+      <div class="mdl-layout-spacer"></div>
+      <!-- Navigation links, hidden on smaller displays -->
+      <nav class="mdl-navigation mdl-layout--large-screen-only">
+      <a class="mdl-navigation__link" href="/following">Following</a>
+      <a class="mdl-navigation__link" href="/dashboard">Trending</a>
+      <a class="mdl-navigation__link" href="/heatmap">Heatmap</a>
+      <a class="mdl-navigation__link" href="/aboutUs">About Us</a>
+	  <a class="mdl-navigation__link" href="/logout"><span class="glyphicon glyphicon-log-out"></span> Log Out</a>
+      </nav>
+    </div>
+  </header>
+    
+    <!-- Drawer container -->
+  <div class="mdl-layout__drawer">
+    <span class="mdl-layout-title">Money Chirp</span>
+    <!-- navigation Container, with links -->
+    <nav class="mdl-navigation">
+      <a class="mdl-navigation__link" href="/following">Following</a>
+      <a class="mdl-navigation__link" href="/dashboard">Trending</a>
+      <a class="mdl-navigation__link" href="/heatmap">Heatmap</a>
+      <a class="mdl-navigation__link" href="/aboutUs">About Us</a>
+      <a class="mdl-navigation__link" href="/deleteaccount">Delete Account</a>
+      <a class="mdl-navigation__link" href="/logout"><span class="glyphicon glyphicon-log-out"></span> Log Out</a>
+    </nav>
+  </div>
+		<main style="flex: 1 0 auto;">
+		       <div class="container">
+		            
+		            <div>
+		                               	                
+		                <center>
+		                
+		                {{{ body }}}
+		                
+		                </center>
+		            </div>
+		        </div>
+		</main>
+
+		<footer class="mdl-mini-footer" id="footer">
+			<div class="mdl-mini-footer__left-section">
+				<div class="mdl-logo">MoneyChirp</div>
+				<ul class="mdl-mini-footer__link-list">
+					<li><a href="#">About Us</a></li>
+					<li><a href="#">Privacy & Terms</a></li>
+					<li><a href="#">Company Index</a></li>
+				</ul>
+			</div>
+		</footer>
+		
+	</div>
+
+</body>
+</html>

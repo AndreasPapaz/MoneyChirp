@@ -1,0 +1,226 @@
+3M Company,3M,MMM
+Abbott Laboratories,AbbottNews,ABT
+AbbVie,AbbVie,ABBV
+Accenture ,Accenture,ACN
+Activision Blizzard,ATVI_AB,ATVI
+Acuity Brands ,AcuityBrands,AYI
+Adobe Systems ,AdobeDocCloud,ADBE
+Advance Auto Parts,AdvanceAuto,AAP
+Aetna ,Aetna ,AET
+AFLAC ,AFLAC ,AFL
+Agilent Technologies ,Agilent,A
+Akamai Technologies ,Akamai,AKAM
+Alaska Air Group ,AlaskaAir,ALK
+Albemarle ,Albemarle,ALB
+Alexion Pharmaceuticals,ALXN,ALXN
+Allegion,AllegionUS,ALLE
+Allergan ,Allergan,AGN
+Allstate,Allstate,ALL
+Google,Google,GOOGL
+Altria Group ,MO,MO
+Amazon,Amazon,AMZN
+Ameren ,Ameren,AEE
+American Airlines ,AmericanAir,AAL
+American Electric Power,AEPnews,AEP
+American Express,AmericanExpress,AXP
+American International Group ,AIGinsurance,AIG
+American Tower  A,AMT,AMT
+American Water Works Company ,AWK,AWK
+Ameriprise Financial,ameriprise,AMP
+AMETEK ,AMETEK_Windjamr,AME
+Amgen ,Amgen ,AMGN
+Amphenol ,APH,APH
+Analog Devices ,ADI_News,ADI
+Aon ,Aon_plc,AON
+Apple ,Apple ,AAPL
+Applied Materials ,Applied_Blog,AMAT
+Arconic ,arconic,ARNC
+Arthur J Gallagher & Co,AJGCharities,AJG
+ATT,ATT,T
+Autodesk ,autodesk,ADSK
+Automatic Data Processing,ADP,ADP
+AutoNation ,AutoNation,AN
+AutoZone ,AutoZone ,AZO
+AvalonBay Communities ,AvalonBay,AVB
+Avery Dennison ,AveryDennison,AVY
+Baker Hughes ,BHInc,BHI
+Bank of America ,BankofAmerica,BAC
+Bed Bath & Beyond,BedBathBeyond,BBBY
+Berkshire Hathaway,WarrenBuffett,BRKB
+Best Buy,BestBuy,BBY
+HR Block,HRBlock,HRB
+Boeing Company,Boeing,BA
+BorgWarner,BorgWarner,BWA
+Boston Scientific,bostonsci,BSX
+Bristol-Myers Squibb,bmsnews,BMY
+Broadcom,Broadcom,AVGO
+Brown-Forman ,jimieljimador,BFB
+Campbell Soup,CampbellSoupCo,CPB
+Capital One Financial,CapitalOne,COF
+Cardinal Health ,cardinalhealth,CAH
+Carmax ,Carmax ,KMX
+Carnival ,CarnivalEnt,CCL
+Caterpillar ,CaterpillarInc,CAT
+CBS ,CBS ,CBS
+Celgene ,Celgene,CELG
+CenturyLink ,CenturyLink,CTL
+Cerner,Cerner,CERN
+Charles Schwab,CharlesSchwab,SCHW
+Charter Communications,CharterNewsroom,CHTR
+Chesapeake Energy,Chesapeake,CHK
+Chevron ,Chevron,CVX
+Chipotle,ChipotleTweets,CMG
+CIGNA ,CIGNA ,CI
+Cisco,Cisco,CSCO
+Citigroup ,Citi,C
+Citizens Financial Group,CFGCommercial,CFG
+Citrix Systems,citrix,CTXS
+CME Group ,CMEGroup,CME
+Coach ,Coach,COH
+CocaCola,CocaCola,KO
+Cognizant Technology Solutions,Cognizant,CTSH
+Comcast ,comcast,CMCSA
+ConocoPhillips,conocophillips,COP
+Consolidated Edison,ConEdison,ED
+Constellation Brands,CBrandsCareers,STZ
+Corning ,Corning,GLW
+Costco,Costco,COST
+Coty ,COTYInc,COTY
+CSX ,CSX ,CSX
+Cummins ,Cummins,CMI
+CVS ,CVSHealth,CVS
+D R Horton,DRHorton,DHI
+Darden Restaurants,darden,DRI
+DaVita ,DaVita,DVA
+John Deere,JohnDeere,DE
+Delphi Automotive,DelphiAuto,DLPH
+Delta Air Lines,Delta,DAL
+Dentsply Sirona,DentsplySirona,XRAY
+Devon Energy ,DevonEnergy,DVN
+Discover Financial Services,Discover,DFS
+Dollar General,DollarGeneral,DG
+Dollar Tree,DollarTree,DLTR
+Dover ,DoverDC,DOV
+Dow Chemical,DowChemical,DOW
+Dr Pepper ,drpepper,DPS
+Du Pont,DuPont_News,DD
+Duke Energy,DukeEnergy,DUK
+Dun & Bradstreet,DnBUS,DNB
+E-Trade,etrade,ETFC
+Eastman Chemical,EastmanChemCo,EMN
+eBay ,eBay ,EBAY
+Ecolab ,Ecolab,ECL
+Edwards Lifesciences,EdwardsLifesci,EW
+Electronic Arts,EA,EA
+Entergy ,Entergy,ETR
+Exelon ,Exelon,EXC
+Expedia ,Expedia,EXPE
+Exxon Mobil ,exxonmobil,XOM
+F5 Networks,F5Networks,FFIV
+Facebook ,Facebook ,FB
+FedEx ,FedEx ,FDX
+Fidelity National Information Services,Fidelity,FIS
+Fifth Third Bank,FifthThird,FITB
+First Solar ,FirstSolar,FSLR
+FirstEnergy ,FEStadium,FE
+Fiserv ,Fiserv,FISV
+FLIR Systems,flir,FLIR
+Flowserve ,Flowserve,FLS
+Fluor ,FluorCorp,FLR
+Foot Locker ,footlocker,FL
+Ford Motor,Ford,F
+Frontier Communications,FrontierCorp,FTR
+Gap ,Gap ,GPS
+Garmin,Garmin,GRMN
+General Dynamics,GDMS,GD
+General Electric,generalelectric,GE
+General Mills,GeneralMills,GIS
+General Motors,GM,GM
+Goldman Sachs Group,GoldmanSachs,GS
+goodyear,goodyear,GT
+Grainger ,Grainger ,GWW
+Halliburton,Halliburton,HAL
+Hanesbrands ,HanesBrands,HBI
+Harley-Davidson,harleydavidson,HOG
+Hasbro ,Hasbro,HAS
+Hewlett Packard Enterprise,HP,HPE
+Home Depot,HomeDepot,HD
+Johnson & Johnson,JNJNews,JNJ
+JPMorgan Chase & Co,Chase,JPM
+Juniper Networks,JuniperNetworks,JNPR
+Kellogg ,KelloggsUS,K
+Kohls,Kohls,KSS
+Kraft Heinz Co,KraftHeinzCo,KHC
+Kroger Co,krogerco,KR
+Lowes,Lowes,LOW
+Macys,Macys,M
+Marathon Oil ,MarathonOil,MRO
+Mastercard ,Mastercard,MA
+Mattel ,Mattel ,MAT
+McDonalds,McDonalds,MCD
+MetLife ,MetLife ,MET
+Michael Kors Holdings,MichaelKors,KORS
+Microsoft ,Microsoft ,MSFT
+Morgan Stanley,MorganStanley,MS
+Motorola Solutions ,MotoSolutions,MSI
+Netflix ,Netflix ,NFLX
+Nike,Nike,NKE
+Nordstrom,Nordstrom,JWN
+Nvidia ,Nvidia ,NVDA
+Oracle ,Oracle ,ORCL
+PACCAR ,PACCAR ,PCAR
+PayPal,PayPal,PYPL
+Pepsi,Pepsi,PEP
+Perrigo,PerrigoCareers,PRGO
+Philip Morris International,InsidePMI,PM
+Phillips 66,Phillips66Co,PSX
+PNC ,PNCBank,PNC
+Ralph Lauren,RalphLauren,RL
+Progressive ,Progressive ,PGR
+QUALCOMM ,Qualcomm,QCOM
+Rockwell Automation ,ROKAutomation,ROK
+Ross Stores,Ross_Stores,ROST
+Royal Caribbean Cruises Ltd,RoyalCruiseLine,RCL
+Salesforce,Salesforce,CRM
+Snapchat,Snapchat,SNAP
+Southwest Airlines,SouthwestAir,LUV
+Southwestern Energy,SWN_R2,SWN
+Staples ,Staples,SPLS
+Starbucks ,Starbucks ,SBUX
+Sysco ,Sysco ,SYY
+Target ,Target ,TGT
+Tegna ,TEGNA,TGNA
+Teradata ,Teradata ,TDC
+Texas Instruments,TXInstruments,TXN
+Textron ,Textron ,TXT
+The Clorox Company,CloroxCo,CLX
+Walt Disney ,DisneyStudios,DIS
+Thermo Fisher Scientific,thermofisher,TMO
+Tiffany & Co,TiffanyAndCo,TIF
+Time Warner ,twxcorp,TWX
+TJX Companies ,TJXCo,TJX
+Torchmark ,TorchmarkMedia,TMK
+Tyson Foods,TysonFoods,TSN
+US Bank,usbank,USB
+Ulta,ultabeauty,ULTA
+Under Armour,UnderArmour,UA
+Union Pacific,UnionPacific,UNP
+Urban Outfitters,UrbanOutfitters,URBN
+VanityFair,VanityFair,VFC
+Valero Energy,ValeroEnergy,VLO
+Viacom ,Viacom,VIAB
+Visa ,Visa ,V
+Walmart,Walmart,WMT
+Wells Fargo,WellsFargo,WFC
+Western Union Co,WesternUnion,WU
+Whole Foods Market,WholeFoods,WFM
+Xerox ,Xerox,XRX
+Yahoo ,Yahoo ,YHOO
+Yum! Brands ,yumbrands,YUM
+Twilio,twilio,YUM
+AMD,AMD,AMD
+IBM,IBM,IBM
+BOX,BOX,BOX
+TESLA,TeslaMotors,TSLA
+GoPro,GoPro,GPRO
+Verizon,Verizon,VZ

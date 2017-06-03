@@ -1,0 +1,104 @@
+<link rel="stylesheet" type="text/css" href="/assets/css/awesomplete.css"/>
+<link rel="stylesheet" type="text/css" href="/assets/css/news.css"/>
+
+<br><br>
+    <div class="jumbotron">
+        <br><br>
+        <h6>Add Company to List</h6>
+        <form action="/api/" method="POST">
+            <div class="row">
+                <div class="col-md-3"></div>
+
+                     <div class="form-group col-md-6 col-sm-10 col-xs-10">
+
+                        <input type="text" name="company_name" class="awesomplete" list="mylist" id="myinput"/>
+    
+                    </div>
+
+                <div class="col-md-3"></div>
+             </div>
+
+            <center>
+                <button id="submit-button runBtn" type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Add Stock</button>
+            </center>
+        </form>
+    
+        <br>
+        <table class="mdl-data-table mdl-js-data-table mdl-data-table mdl-shadow--2dp">
+              <thead>
+                <tr>
+                  <th class="mdl-data-table__cell--non-numeric">Company Name</th>
+                  <th>@Twitter</th>
+                  <th>$</th>
+                  <th>Remove</th>
+                </tr>
+              </thead>
+              {{#each company_name}}
+                {{#if company_lists.company_name}}
+              <tbody>
+                <tr>
+                  <td class="mdl-data-table__cell--non-numeric">{{this.company_lists.company_name}}</td>
+                  <td>{{this.company_lists.twitter_handle}}</td>
+                  <td>{{this.company_lists.stock_sym}}</td>
+                  <td>
+                    
+                        <form action="/company_delete/{{this.company_lists.id}}" method="POST">
+                            <span class="input-group-btn">
+                                <button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored" id="addBtn" type="submit">
+                                    <i class="material-icons">delete</i>
+                                </button>
+                            </span>
+                        </form>
+
+                  </td>
+                  {{else}}
+                    <td class="empty">Start Following</td>
+                    <td>....</td>
+                    <td>....</td>
+                    <td>....</td>
+                </tr>
+                {{/if}}
+                {{/each}}
+              </tbody>
+        </table>
+        <br><br>
+
+        <a class="mdl-navigation__link" href="/dashboard">
+          <button id="submit-button runBtn" type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Go To Charts
+          </button>
+        </a>
+        <a class="mdl-navigation__link" href="/heatmap">
+          <button id="submit-button runBtn" type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Go To HeatMap
+          </button>
+        </a>
+      
+
+<br>
+        <br>
+        {{!-- NEWS CARD --}}
+      <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+          <div class="mdl-card__title">
+            <h2 class="mdl-card__title-text">Welcome</h2>
+            </div>
+            <div class="mdl-card__supporting-text">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Mauris sagittis pellentesque lacus eleifend lacinia...
+            </div>
+            <div class="mdl-card__actions mdl-card--border">
+            <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect newsLink" target="_blank">
+                News Link
+              </a>
+            </div>
+            <div class="mdl-card__menu">
+            {{!-- <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+            <i class="material-icons">share</i>
+            </button> --}}
+          </div>
+          </div>
+    </div>
+
+
+<script src="/assets/js/NewsAPI.js" async></script>
+<script src="/assets/js/awesomplete.js" async></script>
+<script src="/assets/js/dataList.js" async></script>
+   
