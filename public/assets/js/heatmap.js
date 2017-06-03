@@ -25,10 +25,15 @@ $(document).ready(function() {
             var url = 'https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20yahoo.finance.quotes%20where%20symbol%3D%22' + stocksUrl + '%22&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys&callback=';
 
             $.getJSON(url, function(data) {
+
+                // console.log(data);
+
                 for (var i = 0; i < data.query.results.quote.length; i++) {
                     var stockId = '#stock-' + (i + 1);
                     var change = data.query.results.quote[i].ChangeinPercent;
-                    var stockSymbol = data.query.results.quote[i].symbol
+                    var stockSymbol = data.query.results.quote[i].symbol;
+                    var companyName = data.query.results.quote[i].Name;
+
 
                     if (change.slice(0, -1) < 0) {
                         $(stockId).css('background-color', '#db5959');
@@ -41,6 +46,7 @@ $(document).ready(function() {
                     $(stockId).children('.symbol').html(stockSymbol);
                     $(stockId).children('.change').html(change);
                     $(stockId).attr("stockSymbol", stockSymbol);
+                    $(stockId).attr("companyName", companyName);
                 }
             });
 
@@ -49,65 +55,62 @@ $(document).ready(function() {
     }
 
 
-// ================= barchart API and modal ====================
+    // ================= barchart API and modal ====================
 
-var companySymbol;
-var stockPrices = [];
-var stockTimes = [];
+    var companySymbol;
+    var stockPrices = [];
+    var stockTimes = [];
+    var lastClose;
 
 
-$(document).on("click", ".stock", function() {
-    
-    var financeData = {
-        symbol: $(this).attr("stockSymbol"),
-        timeStamps: [],
-        closePrices: []
+    $(document).on("click", ".stock", function() {
+
+        var financeData = {
+            symbol: $(this).attr("stockSymbol"),
+            timeStamps: [],
+            closePrices: []
+        }
+
+        $("#companyInfo").text($(this).attr("companyName") + "(NASDAQ:" + $(this).attr("stockSymbol") + ")");
+
+
+        $.post("api/financeData", financeData, function(data) {
+            companySymbol = data.symbol;
+            stockPrices = data.closePrices;
+            stockTimes = data.timeStamps;
+            lastClose = data.timeStamps[(data.timeStamps.length)-1];
+            // console.log(lastClose);
+            $("#closeDate").text("Last Closing Date: "+lastClose);
+            runChart();
+        });
+
+        // Apple Inc.(NASDAQ:AAPL)
+
+    });
+
+
+    //////////////////////////////// CHARTJS ////////////////////////////////////////
+    var runChart = function() {
+        var ctx = document.getElementById("myChart");
+        var myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: stockTimes,
+                datasets: [{
+                    label: ["Currency in USD"],
+                    borderWidth: 1,
+                    data: stockPrices
+                }],
+                options: {
+                    responsive: false,
+                    maintainAspectRatio: false
+                }
+            }
+        });
     }
 
-    $.post("api/financeData", financeData, function(data) {
-        companySymbol = data.symbol;
-        stockPrices = data.closePrices;
-        stockTimes = data.timeStamps;
-        runChart();
-
-    });
 });
 
+/////////////////////////////////////////
 
-//////////////////////////////// CHARTJS ////////////////////////////////////////
-var runChart = function() {
-    var ctx = document.getElementById("myChart");
-    var myChart = new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: stockTimes,
-            datasets: [{
-                label: [companySymbol],
-                // backgroundColor: [
-                //     'rgba(255, 99, 132, 0.2)',
-                //     'rgba(54, 162, 235, 0.2)',
-                //     'rgba(255, 206, 86, 0.2)',
-                //     'rgba(75, 192, 192, 0.2)',
-                //     'rgba(153, 102, 255, 0.2)',
-                //     'rgba(255, 159, 64, 0.2)'
-                // ],
-                // borderColor: [
-                //     'rgba(255,99,132,1)',
-                //     'rgba(54, 162, 235, 1)',
-                //     'rgba(255, 206, 86, 1)',
-                //     'rgba(75, 192, 192, 1)',
-                //     'rgba(153, 102, 255, 1)',
-                //     'rgba(255, 159, 64, 1)'
-                // ],
-                borderWidth: 1,
-                data: stockPrices
-            }],
-            options: {
-                responsive: false,
-                maintainAspectRatio: false
-            }
-        }
-    });
-}
 
-});

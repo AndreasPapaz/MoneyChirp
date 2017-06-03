@@ -35,7 +35,12 @@
                     companiesScore.push(data[j].score);
                  }              
                 
+                     $.get("/api/mostPopular", function(res){
+                        console.log(res);
 
+                        $("#mostPopular").text(res);
+
+                     });
              });
 
          });
@@ -59,7 +64,7 @@
          data: {
              labels: companiesName,
              datasets: [{
-                 label: 'Twitter Trending Scores',
+                 label: 'Twitter Trending Score',
                  data: companiesScore,
                  backgroundColor: [
                      'rgba(255, 99, 132, 0.2)',

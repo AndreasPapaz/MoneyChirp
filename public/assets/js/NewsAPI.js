@@ -4,7 +4,7 @@ var newsUrl =  "https://newsapi.org/v1/articles?source=" + randNews + "&apiKey=d
 console.log("this is your daily news" + randNews);
 
 runNews();
-setInterval(runNews, 6000);
+setInterval(runNews, 10000);
 
 
 function runNews() {

@@ -3,6 +3,7 @@ var chartData = require("../data/chartData.js");
 var financeData = require("../data/financeData.js");
 var Client = require('node-rest-client').Client;
 var client = new Client();
+var mostPopularTweet = require("../data/mostPopular.js");
 
 
 // //twitter stuff --- move to another file after testing
@@ -23,35 +24,17 @@ var finalScores = [];
 var companiesArray = [];
 var stockDataArray = [];
 var stockTimeArray = [];
-
 var TwitterReturn = [];
 
+var popularCount = 0;
+var mostPopular;
 
-// var getParams = function() {
-
-//     // need query in this part to get handels using names
-//     connection.query("Select * from companies", function(err, res) {
-//         var companyArray = [];
-
-//         if (err) {
-//             throw err;
-//         }
-//         console.log(res);
-//         for (var z = 0; z < res.length; z++) {
-//             companyArray.push(res[z].name);
-//             handleArray.push(res[z].handle);
-
-//         }
-//     console.log(companyArray, handleArray);
-// companiesArray.forEach(getTweets);
-
-// }
 
 var getTweets = function(element, index, array) {
 
     finalScores = [];
 
-    var params = { q: '%40' + element, count: 10, lang: 'en', result_type: 'popular' };
+    var params = { q: '%40' + element, count: 20, lang: 'en', result_type: 'popular' };
 
     client2.get('search/tweets', params, function(error, response) {
         if (error) {
@@ -60,7 +43,7 @@ var getTweets = function(element, index, array) {
 
 
             var trendingScore = 0;
-            // console.log(response);
+            console.log(response);
 
             for (j = 0; j < response.statuses.length; j++) {
 
@@ -70,7 +53,9 @@ var getTweets = function(element, index, array) {
                 console.log(postReach);
                 trendingScore += postReach;
 
-
+                if( postReach > popularCount){
+                    mostPopular = response.statuses[j].text;
+                }
 
             }
 
@@ -117,6 +102,7 @@ module.exports = function(app) {
     app.post("/api/chartData", function(req, res) {
 
         TwitterReturn = [];
+
         chartData = req.body;
         companiesArray = req.body.handles;
 
@@ -125,6 +111,8 @@ module.exports = function(app) {
         setTimeout(function() {
 
             chartData = TwitterReturn;
+            mostPopularTweet = mostPopular; 
+            console.log(mostPopular);
             res.json(TwitterReturn);
 
         }, 2000);
@@ -142,11 +130,11 @@ module.exports = function(app) {
         console.log(symbol);
         getFinance(symbol);
         setTimeout(function() {
-            console.log(stockTimeArray, stockPriceArray);
+            // console.log(stockTimeArray, stockPriceArray);
             financeData.timeStamps = stockTimeArray;
             financeData.closePrices = stockPriceArray;
             res.json(financeData);
-        }, 3000);
+        }, 2000);
     });
 
 
@@ -156,4 +144,8 @@ module.exports = function(app) {
 
     });
 
+   app.get("/api/mostPopular", function(req, res){
+    res.json(mostPopularTweet);
+
+   });
 }
